@@ -1,32 +1,23 @@
-// Dark Mode Toggle
-const toggleBtn = document.getElementById("modeToggle");
-
-toggleBtn.onclick = () => {
-  document.body.classList.toggle("dark");
-  toggleBtn.textContent = document.body.classList.contains("dark")
-    ? "☀️"
-    : "🌙";
-};
-
 // Smooth Scroll
-document.querySelectorAll("nav a").forEach((link) => {
+document.querySelectorAll("a").forEach((link) => {
   link.addEventListener("click", function (e) {
     e.preventDefault();
-    document
-      .querySelector(this.getAttribute("href"))
-      .scrollIntoView({ behavior: "smooth" });
+    document.querySelector(this.getAttribute("href")).scrollIntoView({
+      behavior: "smooth",
+    });
   });
 });
 
-// Project Filter
-function filterProjects(category) {
-  const projects = document.querySelectorAll(".project");
+// Scroll Animation
+const sections = document.querySelectorAll("section");
 
-  projects.forEach((project) => {
-    if (category === "all" || project.classList.contains(category)) {
-      project.style.display = "block";
-    } else {
-      project.style.display = "none";
+window.addEventListener("scroll", () => {
+  sections.forEach((sec) => {
+    const top = sec.getBoundingClientRect().top;
+
+    if (top < window.innerHeight - 100) {
+      sec.style.opacity = "1";
+      sec.style.transform = "translateY(0)";
     }
   });
-}
+});
