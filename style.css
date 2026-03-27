@@ -1,0 +1,113 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: Arial, sans-serif;
+}
+
+/* Light & Dark Mode */
+body {
+  background: pink;
+  color: #333;
+  transition: 0.3s;
+}
+
+body.dark {
+  background: #121212;
+  color: #fff;
+}
+
+/* Navbar */
+nav {
+  display: flex;
+  justify-content: space-between;
+  padding: 15px 30px;
+  background: #333;
+  color: #fff;
+}
+
+nav ul {
+  display: flex;
+  gap: 20px;
+  list-style: none;
+}
+
+nav a {
+  color: white;
+  text-decoration: none;
+}
+
+/* Sections */
+section {
+  padding: 60px 20px;
+  text-align: center;
+}
+
+/* Button */
+.btn {
+  padding: 10px 20px;
+  background: #007bff;
+  color: white;
+  text-decoration: none;
+  border-radius: 5px;
+}
+
+/* Skills */
+.skill {
+  margin: 15px auto;
+  width: 60%;
+}
+
+.bar {
+  height: 10px;
+  background: #ddd;
+  border-radius: 5px;
+}
+
+.bar span {
+  display: block;
+  height: 100%;
+  background: #007bff;
+  border-radius: 5px;
+  animation: load 2s ease-in-out;
+}
+
+@keyframes load {
+  from {
+    width: 0;
+  }
+}
+
+/* Projects */
+.project-list {
+  display: flex;
+  justify-content: center;
+  gap: 20px;
+  flex-wrap: wrap;
+}
+
+.project {
+  padding: 20px;
+  background: #fff;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+.project:hover {
+  transform: scale(1.05);
+}
+
+body.dark .project {
+  background: #1e1e1e;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  nav ul {
+    display: none;
+  }
+  .skill {
+    width: 90%;
+  }
+}
