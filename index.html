@@ -2,75 +2,40 @@
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Startup Landing Page</title>
+    <title>Smart To-Do App</title>
     <link rel="stylesheet" href="style.css" />
   </head>
   <body>
-    <!-- Navbar -->
-    <header class="navbar">
-      <div class="logo">Startup</div>
-      <nav>
-        <a href="#hero">Home</a>
-        <a href="#features">Features</a>
-        <a href="#pricing">Pricing</a>
-        <a href="#testimonials">Testimonials</a>
-      </nav>
-    </header>
+    <div class="container">
+      <h1>Smart To-Do App</h1>
 
-    <!-- Hero Section -->
-    <section id="hero" class="hero">
-      <h1>Grow Your Business Faster</h1>
-      <p>Modern solution for startups and entrepreneurs</p>
-      <button class="btn">Get Started</button>
-    </section>
-
-    <!-- Features -->
-    <section id="features" class="features">
-      <h2>Features</h2>
-      <div class="grid">
-        <div class="card">⚡ Fast Performance</div>
-        <div class="card">🔒 Secure Data</div>
-        <div class="card">🔗 Easy Integration</div>
+      <!-- Input Section -->
+      <div class="input-section">
+        <input type="text" id="taskInput" placeholder="Enter task..." />
+        <button onclick="addTask()">Add</button>
       </div>
-    </section>
 
-    <!-- Pricing -->
-    <section id="pricing" class="pricing">
-      <h2>Pricing</h2>
-      <div class="grid">
-        <div class="card">
-          <h3>Basic</h3>
-          <p>$10/month</p>
-          <button class="btn">Buy Now</button>
-        </div>
-        <div class="card highlight">
-          <h3>Pro</h3>
-          <p>$20/month</p>
-          <button class="btn">Buy Now</button>
-        </div>
-        <div class="card">
-          <h3>Premium</h3>
-          <p>$30/month</p>
-          <button class="btn">Buy Now</button>
-        </div>
+      <!-- Search -->
+      <input
+        type="text"
+        id="search"
+        placeholder="Search tasks..."
+        onkeyup="searchTask()"
+      />
+
+      <!-- Filters -->
+      <div class="filters">
+        <button onclick="filterTasks('all')">All</button>
+        <button onclick="filterTasks('completed')">Completed</button>
+        <button onclick="filterTasks('pending')">Pending</button>
       </div>
-    </section>
 
-    <!-- Testimonials -->
-    <section id="testimonials" class="testimonials">
-      <h2>What Our Users Say</h2>
-      <div class="grid">
-        <div class="card">"Amazing product!"</div>
-        <div class="card">"Boosted my business 🚀"</div>
-        <div class="card">"Highly recommended"</div>
-      </div>
-    </section>
+      <!-- Task List -->
+      <ul id="taskList"></ul>
 
-    <!-- Footer -->
-    <footer class="footer">
-      <p>© 2026 Startup. All rights reserved.</p>
-    </footer>
+      <!-- Dark Mode -->
+      <button class="dark-btn" onclick="toggleDarkMode()">🌙 Dark Mode</button>
+    </div>
 
     <script src="script.js"></script>
   </body>
