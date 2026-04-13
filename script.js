@@ -1,93 +1,32 @@
-let tasks = JSON.parse(localStorage.getItem("tasks")) || [];
-let currentFilter = "all";
+// Dark Mode Toggle
+const toggleBtn = document.getElementById("modeToggle");
 
-// Add Task
-function addTask() {
-  const input = document.getElementById("taskInput");
-  if (input.value.trim() === "") return;
+toggleBtn.onclick = () => {
+  document.body.classList.toggle("dark");
+  toggleBtn.textContent = document.body.classList.contains("dark")
+    ? "☀️"
+    : "🌙";
+};
 
-  tasks.push({ text: input.value, completed: false });
-  input.value = "";
-  saveAndRender();
-}
+// Smooth Scroll
+document.querySelectorAll("nav a").forEach((link) => {
+  link.addEventListener("click", function (e) {
+    e.preventDefault();
+    document
+      .querySelector(this.getAttribute("href"))
+      .scrollIntoView({ behavior: "smooth" });
+  });
+});
 
-// Render Tasks
-function renderTasks() {
-  const list = document.getElementById("taskList");
-  list.innerHTML = "";
+// Project Filter
+function filterProjects(category) {
+  const projects = document.querySelectorAll(".project");
 
-  tasks
-    .filter((task) => {
-      if (currentFilter === "completed") return task.completed;
-      if (currentFilter === "pending") return !task.completed;
-      return true;
-    })
-    .forEach((task, index) => {
-      const li = document.createElement("li");
-
-      li.innerHTML = `
-        <span onclick="toggleTask(${index})" class="${task.completed ? "completed" : ""}">
-          ${task.text}
-        </span>
-        <div>
-          <button onclick="editTask(${index})">✏️</button>
-          <button onclick="deleteTask(${index})">❌</button>
-        </div>
-      `;
-
-      list.appendChild(li);
-    });
-}
-
-// Toggle Complete
-function toggleTask(index) {
-  tasks[index].completed = !tasks[index].completed;
-  saveAndRender();
-}
-
-// Delete Task
-function deleteTask(index) {
-  tasks.splice(index, 1);
-  saveAndRender();
-}
-
-// Edit Task
-function editTask(index) {
-  const newText = prompt("Edit task:", tasks[index].text);
-  if (newText) {
-    tasks[index].text = newText;
-    saveAndRender();
-  }
-}
-
-// Filter Tasks
-function filterTasks(filter) {
-  currentFilter = filter;
-  renderTasks();
-}
-
-// Search
-function searchTask() {
-  const value = document.getElementById("search").value.toLowerCase();
-  const listItems = document.querySelectorAll("li");
-
-  listItems.forEach((li) => {
-    li.style.display = li.innerText.toLowerCase().includes(value)
-      ? "flex"
-      : "none";
+  projects.forEach((project) => {
+    if (category === "all" || project.classList.contains(category)) {
+      project.style.display = "block";
+    } else {
+      project.style.display = "none";
+    }
   });
 }
-
-// Save + Render
-function saveAndRender() {
-  localStorage.setItem("tasks", JSON.stringify(tasks));
-  renderTasks();
-}
-
-// Dark Mode
-function toggleDarkMode() {
-  document.body.classList.toggle("dark");
-}
-
-// Initial Load
-renderTasks();

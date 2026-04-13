@@ -2,40 +2,96 @@
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
-    <title>Smart To-Do App</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>My Portfolio</title>
     <link rel="stylesheet" href="style.css" />
   </head>
   <body>
-    <div class="container">
-      <h1>Smart To-Do App</h1>
+    <!-- Navbar -->
+    <nav>
+      <h2>MyPortfolio</h2>
+      <ul>
+        <li><a href="#about Me">About Me</a></li>
+        <li><a href="#skills">Skills</a></li>
+        <li><a href="#projects">Projects</a></li>
+        <li><a href="#contact Information">Contact Information</a></li>
+      </ul>
+      <button id="modeToggle">🌙</button>
+    </nav>
 
-      <!-- Input Section -->
-      <div class="input-section">
-        <input type="text" id="taskInput" placeholder="Enter task..." />
-        <button onclick="addTask()">Add</button>
+    <!-- About -->
+    <section id="about me ">
+      <h1>Hello, I'm Abhishek kumar mishra</h1>
+      <p>Python Web Developer |THINK CODE CREATE</p>
+      <br /><br />
+      <a
+        href="https://drive.google.com/file/d/1TPABaGXotV5-zJEL11vRlTm3oc4wYnEd/view?usp=drivesdk"
+        download
+        class="btn"
+        >Download Resume</a
+      >
+    </section>
+
+    <!-- Skills -->
+    <section id="skills">
+      <h2>My Skills</h2>
+
+      <div class="skill">
+        <p>HTML</p>
+        <div class="bar"><span style="width: 90%"></span></div>
       </div>
 
-      <!-- Search -->
-      <input
-        type="text"
-        id="search"
-        placeholder="Search tasks..."
-        onkeyup="searchTask()"
-      />
+      <div class="skill">
+        <p>CSS</p>
+        <div class="bar"><span style="width: 85%"></span></div>
+      </div>
 
-      <!-- Filters -->
+      <div class="skill">
+        <p>JavaScript</p>
+        <div class="bar"><span style="width: 75%"></span></div>
+      </div>
+
+      <div class="skill">
+        <p>Python</p>
+        <div class="bar"><span style="width: 80%"></span></div>
+      </div>
+    </section>
+
+    <!-- Projects -->
+    <section id="projects">
+      <h2>Projects</h2>
+
       <div class="filters">
-        <button onclick="filterTasks('all')">All</button>
-        <button onclick="filterTasks('completed')">Completed</button>
-        <button onclick="filterTasks('pending')">Pending</button>
+        <button onclick="filterProjects('all')">All</button>
+        <button onclick="filterProjects('web')">Web</button>
+        <button onclick="filterProjects('ai')">ai</button>
       </div>
 
-      <!-- Task List -->
-      <ul id="taskList"></ul>
+      <div class="project-list">
+  <div class="project web">
+    <a href="file:///C:/Users/hp/OneDrive/Desktop/e%20learning/E-learning-website/E-learning%20website/index.html" target="_blank">
+      E-Leaning Website
+    </a>
+  </div>
 
-      <!-- Dark Mode -->
-      <button class="dark-btn" onclick="toggleDarkMode()">🌙 Dark Mode</button>
-    </div>
+  <div class="project python">
+    <a href="file:///C:/Users/hp/OneDrive/Desktop/python%20calculator%20full%20stack/PythonCalculator/templates/index.html" target="_blank">
+      Python Full Stack Calculator
+    </a>
+  </div>
+
+  <div class="project frontend">
+    <a href="file:///C:/Users/hp/OneDrive/Desktop/Amazon%20clone/Amazon-clone/index.html" target="_blank">
+      Amazon Clone
+    </a>
+  </div>
+</div>
+
+    <!-- Contact -->
+    <section id="contact">
+      <h2>Contact Me</h2>
+      <p>Email: abhishek123mishr@gmail.com</p>
+    </section>
 
     <script src="script.js"></script>
   </body>
